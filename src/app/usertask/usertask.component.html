@@ -1,0 +1,36 @@
+<form [formGroup]="oppoSuitsForm">
+  <div class="form-group">
+    <select formControlName="name" class="form-control">
+      <option class="hai" selected>Select Titlename</option>
+      <option class=" hai" *ngFor="let suit of data">{{
+        suit.titlename
+      }}</option>
+    </select>
+  </div>
+</form>
+<!-- <div class="form-group">
+  <b>Search</b>
+  <input
+    type="text"
+    class="form-control"
+    id="exampleInputPassword1"
+    [(ngModel)]="key"
+    placeholder="search...."
+  />
+</div> -->
+<table border="2px">
+  <tr>
+    <th>S.No</th>
+    <th>Title Name</th>
+    <th>Doing Task</th>
+    <th>Reminder Date & Time</th>
+  </tr>
+  <tr
+    *ngFor="let task of data | serch: oppoSuitsForm.value.name; let i = index"
+  >
+    <td>{{ i + 1 }}</td>
+    <td>{{ task.titlename }}</td>
+    <td>{{ task.task }}</td>
+    <td>{{ task.rdatetime }}</td>
+  </tr>
+</table>

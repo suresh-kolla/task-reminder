@@ -1,0 +1,28 @@
+table {
+  width: 75%;
+  margin: auto;
+}
+th {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Slabo 27px", serif;
+}
+td {
+  padding-left: 15px;
+  font-size: 22px;
+  font-family: "Slabo 27px", serif;
+}
+.form-control {
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  line-height: 25px;
+}
+.form-group {
+  text-align: center;
+}
+.empty {
+  color: blue;
+  font-size: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

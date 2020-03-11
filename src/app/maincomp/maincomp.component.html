@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand t " routerLink="/">Task-reminder</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="Active">
+        <a routerLink="create"><b>CreateTask</b></a>
+      </li>
+      <li class="Active">
+        <a routerLink="view"><b>View allTask</b></a>
+      </li>
+      <li class="Active">
+        <a routerLink="userview"><b>View userTask</b></a>
+      </li>
+      <li class="Active">
+        <a routerLink="mynotification"><b>My notification</b></a>
+      </li>
+      <li class="Active">
+        <a style="cursor: pointer;" (click)="logout()"><b>Logout</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div id="l1">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,16 @@
+.t {
+  font-size: 25px;
+  font-weight: bold;
+}
+.navbar {
+  border-radius: 0%;
+}
+.Active:hover {
+  background-color: rgb(0, 0, 0);
+  font: outline;
+  font-size: 17px;
+  font-family: "Slabo 27px", serif;
+}
+#l1 {
+  margin: 20px opx;
+}

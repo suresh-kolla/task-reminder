@@ -1,0 +1,59 @@
+<div [formGroup]="Taskform">
+  <div class="form-group">
+    <b>Title name</b>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      formControlName="titlename"
+      placeholder="Enter Tasktitle name"
+      [ngClass]="{
+        'is-invalid': submitted && f.titlename.errors
+      }"
+    />
+    <div *ngIf="submitted && f.titlename.errors" class="invalid-feedback">
+      <div *ngIf="f.titlename.errors.required" class="fix">
+        Titlename is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <b>Doing task</b>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputPassword1"
+      formControlName="task"
+      placeholder="User doing the task"
+      [ngClass]="{
+        'is-invalid': submitted && f.task.errors
+      }"
+    />
+    <div *ngIf="submitted && f.task.errors" class="invalid-feedback">
+      <div *ngIf="f.task.errors.required" class="fix">
+        Task is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div><b>Reminder date and time</b></div>
+    <input
+      type="datetime-local"
+      class="form-control"
+      formControlName="rdatetime"
+      [ngClass]="{
+        'is-invalid': submitted && f.rdatetime.errors
+      }"
+    />
+    <div *ngIf="submitted && f.rdatetime.errors" class="invalid-feedback">
+      <div *ngIf="f.rdatetime.errors.required" class="fix">
+        Reminder Date and Time is required
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <button type="submit" class="btn btn-warning" (click)="submit()">
+      Submit
+    </button>
+  </div>
+</div>

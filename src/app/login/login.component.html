@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand t " routerLink="/">TASK-REMINDER</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="Active">
+        <a routerLink="/"><b>LogIn</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="contain" [formGroup]="userform">
+  <h1 class="set">LOGIN FORM</h1>
+
+  <div class="form-group">
+    <b>User Name</b>
+    <input
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      formControlName="username"
+      placeholder="Enter Username"
+      [ngClass]="{
+        'is-invalid': submitted && f.username.errors
+      }"
+    />
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors.required" class="fix">
+        Username is required
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <b>Password</b>
+    <input
+      type="password"
+      class="form-control"
+      id="exampleInputPassword1"
+      formControlName="pswd"
+      placeholder="Enter password"
+      [ngClass]="{
+        'is-invalid': submitted && f.pswd.errors
+      }"
+    />
+    <div *ngIf="submitted && f.pswd.errors" class="invalid-feedback">
+      <div *ngIf="f.pswd.errors.required" class="fix">
+        password is required
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <button class="btn btn-warning" (click)="done()">Login</button>
+  </div>
+</div>
