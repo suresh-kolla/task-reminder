@@ -1,26 +1,18 @@
-<table border="2px" *ngIf="flag1">
-  <tr>
-    <th>S.No</th>
-    <th>Title Name</th>
-    <th>Doing Task</th>
-    <th>Reminder Date & Time</th>
-    <th>Remove</th>
-  </tr>
-  <tr *ngFor="let task of data; let i = index">
-    <td>{{ i + 1 }}</td>
-    <td>{{ task.titlename }}</td>
-    <td>{{ task.task }}</td>
-    <td>{{ task.rdatetime }}</td>
-    <td
-      style="text-align: center;color: red;cursor: pointer;"
-      (click)="remove(i)"
-    >
-      delete
-    </td>
-  </tr>
-</table>
-
-<div *ngIf="!flag1" style="text-align: center;">
-  <h2>There is no Data</h2>
-  <a routerLink="" class="empty">create Task</a>
-</div>
+<ng-container *ngIf="flag">
+  <table border="2px">
+    <tr>
+      <th>S.No</th>
+      <th>Title Name</th>
+      <th>Doing Task</th>
+      <th>Assigned To</th>
+      <th>Reminder Date & Time</th>
+    </tr>
+    <tr *ngFor="let task of data; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ task.task_name }}</td>
+      <td>{{ task.task_description }}</td>
+      <td>{{ task.assigned_to }}</td>
+      <td>{{ task.reminder_time }}</td>
+    </tr>
+  </table>
+</ng-container>

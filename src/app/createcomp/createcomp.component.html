@@ -5,15 +5,15 @@
       type="text"
       class="form-control"
       id="exampleInputEmail1"
-      formControlName="titlename"
+      formControlName="task_name"
       placeholder="Enter Tasktitle name"
       [ngClass]="{
-        'is-invalid': submitted && f.titlename.errors
+        'is-invalid': submitted && f.task_name.errors
       }"
     />
-    <div *ngIf="submitted && f.titlename.errors" class="invalid-feedback">
-      <div *ngIf="f.titlename.errors.required" class="fix">
-        Titlename is required
+    <div *ngIf="submitted && f.task_name.errors" class="invalid-feedback">
+      <div *ngIf="f.task_name.errors.required" class="fix">
+        task_name is required
       </div>
     </div>
   </div>
@@ -23,30 +23,41 @@
       type="text"
       class="form-control"
       id="exampleInputPassword1"
-      formControlName="task"
+      formControlName="task_description"
       placeholder="User doing the task"
       [ngClass]="{
-        'is-invalid': submitted && f.task.errors
+        'is-invalid': submitted && f.task_description.errors
       }"
     />
-    <div *ngIf="submitted && f.task.errors" class="invalid-feedback">
-      <div *ngIf="f.task.errors.required" class="fix">
+    <div
+      *ngIf="submitted && f.task_description.errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f.task_description.errors.required" class="fix">
         Task is required
       </div>
     </div>
+  </div>
+  <div class="form-group">
+    <label>Assign To</label>
+    <!-- <select  formControlName="assigned_to" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userlist.errors }" > -->
+    <app-dropdown (updateSelectUser)="getAssignedUserID($event)">
+    </app-dropdown>
+    <!-- </select> -->
   </div>
   <div class="form-group">
     <div><b>Reminder Date and Time</b></div>
     <input
       type="datetime-local"
       class="form-control"
-      formControlName="rdatetime"
+      formControlName="reminder_time"
       [ngClass]="{
-        'is-invalid': submitted && f.rdatetime.errors
+        'is-invalid': submitted && f.reminder_time.errors
       }"
     />
-    <div *ngIf="submitted && f.rdatetime.errors" class="invalid-feedback">
-      <div *ngIf="f.rdatetime.errors.required" class="fix">
+
+    <div *ngIf="submitted && f.reminder_time.errors" class="invalid-feedback">
+      <div *ngIf="f.reminder_time.errors.required" class="fix">
         Reminder Date and Time is required
       </div>
     </div>

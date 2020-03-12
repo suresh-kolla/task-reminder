@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ServiceService } from "../service.service";
+import { CreatTaskService } from "../creat-task.service";
 
 @Component({
   selector: "app-viewcomp",
@@ -7,23 +8,20 @@ import { ServiceService } from "../service.service";
   styleUrls: ["./viewcomp.component.css"]
 })
 export class ViewcompComponent implements OnInit {
-  data;
-  key;
-  flag1;
-  constructor(public service: ServiceService) {}
-
-  ngOnInit() {
-    this.data = this.service.task;
-    if (this.data != "") {
-      this.flag1 = true;
-    } else {
-      this.flag1 = false;
-    }
+  data = [];
+  flag = false;
+  constructor(
+    public service: ServiceService,
+    private creattask: CreatTaskService
+  ) {}
+  get() {
+    this.creattask.getAllTask().subscribe(res => {
+      this.data = res;
+      this.flag = true;
+    });
   }
-  remove(i) {
-    this.service.delete(i);
-    if (this.data == "") {
-      this.flag1 = false;
-    }
+  ngOnInit() {
+    this.service.navigate();
+    this.get();
   }
 }

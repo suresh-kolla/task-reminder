@@ -1,11 +1,19 @@
 import { Injectable } from "@angular/core";
 import _ from "lodash";
+import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 @Injectable({
   providedIn: "root"
 })
 export class ServiceService {
-  constructor() {}
+  constructor(public router: Router) {}
+  url;
+  navigate() {
+    this.url = localStorage.getItem("currentUser");
+    if (this.url == null) {
+      this.router.navigate(["/"]);
+    }
+  }
   task = [
     {
       titlename: "satya kolla",
@@ -26,11 +34,15 @@ export class ServiceService {
       titlename: "maximl",
       task: "teamout ",
       rdatetime: "2020-03-13T12:02"
+    },
+    {
+      titlename: "david",
+      task: "playing cricket",
+      rdatetime: "2020-03-17T22:02"
     }
   ];
   add(x) {
     this.task.push(x);
-    console.log(this.task);
   }
   delete(i) {
     this.task.splice(i, 1);

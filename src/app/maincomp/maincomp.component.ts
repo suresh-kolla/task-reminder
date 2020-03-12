@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { AuthenticationService } from "../authentication.service";
 
 @Component({
   selector: "app-maincomp",
@@ -7,11 +7,10 @@ import { Router } from "@angular/router";
   styleUrls: ["./maincomp.component.css"]
 })
 export class MaincompComponent implements OnInit {
-  constructor(public route: Router) {}
+  constructor(public authenticationService: AuthenticationService) {}
 
   ngOnInit() {}
   logout() {
-    localStorage.removeItem("username");
-    this.route.navigate(["/"]);
+    this.authenticationService.logout();
   }
 }

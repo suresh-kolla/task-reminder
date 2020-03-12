@@ -1,0 +1,5 @@
+<select (change)="selectUser($event.target.value)" class="form-control">
+  <option class=" hai" *ngFor="let user of users" [value]="user.id">{{
+    user.username
+  }}</option>
+</select>

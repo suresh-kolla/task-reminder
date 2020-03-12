@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ServiceService } from "../service.service";
-import { FormBuilder } from "@angular/forms";
+import { CreatTaskService } from "../creat-task.service";
 
 @Component({
   selector: "app-usertask",
@@ -11,16 +11,18 @@ export class UsertaskComponent implements OnInit {
   data;
   key;
   flag1;
-  constructor(public service: ServiceService, public fb: FormBuilder) {}
+  constructor(
+    public service: ServiceService,
+    private tasksService: CreatTaskService
+  ) {}
 
   ngOnInit() {
-    this.data = this.service.task;
+    this.service.navigate();
   }
-  remove(i) {
-    this.service.delete(i);
+  getAssignedUserID(data) {
+    // console.log("Data "+data)
+    this.tasksService
+      .getUserTasks(data)
+      .subscribe(tasks => (this.data = tasks));
   }
-
-  oppoSuitsForm = this.fb.group({
-    name: [""]
-  });
 }

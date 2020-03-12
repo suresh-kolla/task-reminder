@@ -11,6 +11,8 @@ import { LoginComponent } from "./login/login.component";
 import { MynotificationComponent } from "./mynotification/mynotification.component";
 import { UsertaskComponent } from "./usertask/usertask.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from "@angular/common/http";
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     SerchPipe,
     LoginComponent,
     MynotificationComponent,
-    UsertaskComponent
+    UsertaskComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

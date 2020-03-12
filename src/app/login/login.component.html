@@ -38,14 +38,14 @@
       type="password"
       class="form-control"
       id="exampleInputPassword1"
-      formControlName="pswd"
+      formControlName="password"
       placeholder="Enter password"
       [ngClass]="{
-        'is-invalid': submitted && f.pswd.errors
+        'is-invalid': submitted && f.password.errors
       }"
     />
-    <div *ngIf="submitted && f.pswd.errors" class="invalid-feedback">
-      <div *ngIf="f.pswd.errors.required" class="fix">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required" class="fix">
         password is required
       </div>
     </div>

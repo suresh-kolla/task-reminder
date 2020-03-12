@@ -1,3 +1,19 @@
 <div class="container">
   <h2>My Notification:</h2>
 </div>
+<div *ngIf="notifications">
+  <table>
+    <tr>
+      <th>Notification Topic</th>
+      <th>Notification Description</th>
+      <th>For</th>
+      <th>Created At</th>
+    </tr>
+    <tr *ngFor="let notification of notifications">
+      <td>{{ notification.notification_topic }}</td>
+      <td>{{ notification.notification_text }}</td>
+      <td>{{ notification.remind_to }}</td>
+      <td>{{ notification.time_created }}</td>
+    </tr>
+  </table>
+</div>
